@@ -9,5 +9,7 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'Jarrod-Ferriss-Learning-Angular';
+  title:string = 'Jarrod-Ferriss-Learning-Angular';
+  name:string = 'Jarrod Ferriss';
+  age:number = 28;
 }
