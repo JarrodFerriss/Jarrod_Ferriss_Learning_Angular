@@ -1,8 +1,8 @@
 // Creating the 'SpaceMarine' data type
-export interface SpaceMarines {
+export interface SpaceMarine {
 
   name: string,
-  age: number,
+  yearBorn: number,
   rank: string,
   chapter: string,
   isFallen?: boolean
