@@ -1,12 +1,17 @@
-import { Component } from '@angular/core';
+// space-marine-list-item.component.ts
+import { Component, Input } from '@angular/core';
+import {NgIf, NgOptimizedImage} from "@angular/common";
 
 @Component({
   selector: 'app-space-marine-list-item',
   standalone: true,
-  imports: [],
+  imports: [
+    NgIf,
+    NgOptimizedImage
+  ],
   templateUrl: './space-marine-list-item.component.html',
-  styleUrl: './space-marine-list-item.component.css'
+  styleUrls: ['./space-marine-list-item.component.css']
 })
 export class SpaceMarineListItemComponent {
-
+  @Input() spaceMarine: any;
 }

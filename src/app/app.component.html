@@ -1,27 +1,8 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Jarrod Ferriss Learning Angular</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-  </head>
-  <body>
-    <div class="container">
-      <h2>Space Marine List</h2>
-        <div *ngFor="let spaceMarine of spaceMarines" class="character-card">
-          <h3> {{spaceMarine.name}} | {{spaceMarine.rank}} </h3>
-          <p><b>Born : {{spaceMarine.yearBorn}} of the 41st Millennium.</b></p>
-          <p><b>{{spaceMarine.chapter}}</b></p>
-          <div *ngIf="spaceMarine.isFallen; else alive">
-            <img ngSrc="assets/images/skull.jpg" alt="Skull and Crossbones" height="300" width="300">
-          </div>
-          <ng-template #alive>
-            <img ngSrc="assets/images/shield.jpg" alt="Serving the Emperor" height="300" width="300">
-          </ng-template>
+ <div class="container">
 
-        </div>
-    </div>
-  </body>
-</html>
+      <h2>Welcome to the Space Marine Database</h2>
+
+      <app-space-marine-list></app-space-marine-list>
+</div>
 
 <router-outlet />

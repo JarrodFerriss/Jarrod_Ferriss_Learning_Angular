@@ -1,1 +1,12 @@
-<p>space-marine-list-item works!</p>
+<!-- space-marine-list-item.component.html -->
+<div class="space-marine-item">
+  <h3>{{ spaceMarine.name }} | {{ spaceMarine.rank }}</h3>
+  <p><strong>Born:</strong> {{ spaceMarine.yearBorn }} of the 41st Millennium.</p>
+  <p><strong>Chapter:</strong> {{ spaceMarine.chapter }}</p>
+  <div *ngIf="spaceMarine.isFallen; else alive">
+    <img ngSrc="assets/images/skull.jpg" alt="Skull and Crossbones" height="300" width="300">
+  </div>
+  <ng-template #alive>
+    <img ngSrc="assets/images/shield.jpg" alt="Serving the Emperor" height="300" width="300">
+  </ng-template>
+</div>
