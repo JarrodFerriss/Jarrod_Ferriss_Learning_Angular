@@ -1,0 +1,14 @@
+/* space-marine-list-item.component.css */
+:host {
+  display: block; /* Ensure the host element behaves like a block-level element */
+  border: 2px solid black; /* Apply a 2-pixel solid black border */
+  border-radius: 12px;
+  padding: 10px; /* Optional: Add some padding for better appearance */
+  margin-bottom: 10px; /* Optional: Add some margin to separate items */
+
+}
+
+:hover {
+  background-color: aliceblue;
+  border-radius: 12px;
+}
