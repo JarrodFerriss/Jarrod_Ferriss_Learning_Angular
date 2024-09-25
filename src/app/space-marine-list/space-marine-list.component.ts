@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { SpaceMarineListItemComponent } from '../space-marine-list-item/space-marine-list-item.component';
-import {NgForOf} from "@angular/common";
+import {NgClass, NgForOf} from "@angular/common";
 
 @Component({
   selector: 'app-space-marine-list',
   standalone: true,
-  imports: [SpaceMarineListItemComponent, NgForOf],
+  imports: [SpaceMarineListItemComponent, NgForOf, NgClass],
   templateUrl: './space-marine-list.component.html',
   styleUrls: ['./space-marine-list.component.css']
 })

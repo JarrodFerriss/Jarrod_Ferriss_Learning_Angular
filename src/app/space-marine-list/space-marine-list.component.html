@@ -1,10 +1,8 @@
 <!-- space-marine-list.component.html -->
 <div class="space-marine-list">
   <h2>Space Marine List</h2>
-  <!-- Add 4 ContentListItem tags -->
-  <app-space-marine-list-item [spaceMarine]="spaceMarines[0]"></app-space-marine-list-item>
-  <app-space-marine-list-item [spaceMarine]="spaceMarines[1]"></app-space-marine-list-item>
-  <app-space-marine-list-item [spaceMarine]="spaceMarines[2]"></app-space-marine-list-item>
-  <app-space-marine-list-item [spaceMarine]="spaceMarines[3]"></app-space-marine-list-item>
-  <app-space-marine-list-item [spaceMarine]="spaceMarines[4]"></app-space-marine-list-item>
+  <div *ngFor="let spaceMarine of spaceMarines; let i = index"
+       [ngClass]="{'odd-item': i % 2 !== 0, 'even-item': i % 2 === 0}">
+    <app-space-marine-list-item [spaceMarine]="spaceMarine"></app-space-marine-list-item>
+  </div>
 </div>
