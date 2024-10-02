@@ -1,5 +1,6 @@
 export const spaceMarines = [
   {
+    id: 1,
     name: 'Marneus Calgar',
     rank: 'Chapter Master',
     yearBorn: '541',
@@ -7,6 +8,7 @@ export const spaceMarines = [
     isFallen: false
   },
   {
+    id: 2,
     name: 'Gabriel Angelos',
     rank: 'Captain',
     yearBorn: '539',
@@ -14,6 +16,7 @@ export const spaceMarines = [
     isFallen: false
   },
   {
+    id: 3,
     name: 'Discarius Hurn',
     rank: 'Sergeant',
     yearBorn: '654',
@@ -21,6 +24,7 @@ export const spaceMarines = [
     isFallen: true
   },
   {
+    id: 4,
     name: 'Cato Sicarius',
     rank: 'Captain',
     yearBorn: '540',
@@ -28,6 +32,7 @@ export const spaceMarines = [
     isFallen: false
   },
   {
+    id: 5,
     name: 'Azrael',
     rank: 'Supreme Grand Master',
     yearBorn: '541',
