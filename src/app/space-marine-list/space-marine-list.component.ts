@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { SpaceMarineListItemComponent } from '../space-marine-list-item/space-marine-list-item.component';
-import {NgClass, NgForOf} from "@angular/common";
+import { NgClass, NgForOf } from "@angular/common";
+import { spaceMarines } from '../data/mock-contents';
 
 @Component({
   selector: 'app-space-marine-list',
@@ -12,42 +13,7 @@ import {NgClass, NgForOf} from "@angular/common";
 
 export class SpaceMarineListComponent {
 
-  //Array of Space Marines
-  spaceMarines = [
-    {
-      name: 'Marneus Calgar',
-      rank: 'Chapter Master',
-      yearBorn: '541',
-      chapter: 'Ultramarines',
-      isFallen: false
-    },
-    {
-      name: 'Gabriel Angelos',
-      rank: 'Captain',
-      yearBorn: '539',
-      chapter: 'Blood Ravens',
-      isFallen: false
-    },
-    {
-      name: 'Discarius Hurn',
-      rank: 'Sergent',
-      yearBorn: '654',
-      chapter: 'Salamanders',
-      isFallen: true
-    },
-    {
-      name: 'Cato Sicarius',
-      rank: 'Captain',
-      yearBorn: '540',
-      chapter: 'Ultramarines',
-      isFallen: false
-    },
-    {
-      name: 'Azrael',
-      rank: 'Supreme Grand Master',
-      yearBorn: '541',
-      chapter: 'Dark Angels',
-      isFallen: false
-    }
-  ];
+  // Reference to the imported array of Space Marines
+  spaceMarines = spaceMarines;
+
 }
