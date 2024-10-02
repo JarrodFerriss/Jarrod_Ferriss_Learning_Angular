@@ -1,8 +1,14 @@
- <div class="container">
+<div class="container">
+  <h2>Welcome to the Space Marine Database</h2>
 
-      <h2>Welcome to the Space Marine Database</h2>
+  <!-- Display the single featured Space Marine at the top -->
+  <app-space-marine-list-item
+    [spaceMarine]="featuredMarine"
+    class="featured-marine">
+  </app-space-marine-list-item>
 
-      <app-space-marine-list></app-space-marine-list>
+  <!-- Display the list of Space Marines below -->
+  <app-space-marine-list (marineSelected)="updateFeaturedMarine($event)"></app-space-marine-list> <!-- Added event binding -->
 </div>
 
-<router-outlet />
+<router-outlet></router-outlet>

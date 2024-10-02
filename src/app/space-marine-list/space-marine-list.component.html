@@ -2,7 +2,8 @@
 <div class="space-marine-list">
   <h2>Space Marine List</h2>
   <div *ngFor="let spaceMarine of spaceMarines; let i = index"
-       [ngClass]="{'odd-item': i % 2 !== 0, 'even-item': i % 2 === 0}">
+       [ngClass]="{'odd-item': i % 2 !== 0, 'even-item': i % 2 === 0}"
+       (click)="onSelectMarine(spaceMarine)"> <!-- Added click event -->
     <app-space-marine-list-item [spaceMarine]="spaceMarine"></app-space-marine-list-item>
   </div>
 </div>

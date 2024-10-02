@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { SpaceMarineListItemComponent } from '../space-marine-list-item/space-marine-list-item.component';
 import { NgClass, NgForOf } from "@angular/common";
 import { SpaceMarineService } from '../services/space-marine.service';  // Import the service
@@ -10,23 +10,26 @@ import { SpaceMarineService } from '../services/space-marine.service';  // Impor
   templateUrl: './space-marine-list.component.html',
   styleUrls: ['./space-marine-list.component.css']
 })
-
 export class SpaceMarineListComponent implements OnInit {
 
+  @Output() marineSelected = new EventEmitter<any>();  // Output event to emit the selected marine
   spaceMarines: any[] = [];  // Property to store Space Marines data
 
-  // Injecting the SpaceMarineService using dependency injection
   constructor(private spaceMarineService: SpaceMarineService) {}
 
-  // OnInit lifecycle hook to fetch data from the service
   ngOnInit(): void {
     this.spaceMarineService.getSpaceMarines().subscribe({
       next: (data: any[]) => {
         this.spaceMarines = data;
-        console.log('Space Marines fetched:', this.spaceMarines);  // Logging the fetched data
+        console.log('Space Marines fetched:', this.spaceMarines);
       },
-      error: (err) => console.error('Error fetching Space Marines', err),  // Logging error if any
-      complete: () => console.log('Space Marine data fetch complete')  // Logging when fetch is complete
+      error: (err) => console.error('Error fetching Space Marines', err),
+      complete: () => console.log('Space Marine data fetch complete')
     });
+  }
+
+  // Method to emit the selected marine
+  onSelectMarine(marine: any): void {
+    this.marineSelected.emit(marine);  // Emit the selected marine
   }
 }
