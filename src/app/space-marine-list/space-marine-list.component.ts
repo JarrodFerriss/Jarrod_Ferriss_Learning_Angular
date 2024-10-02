@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SpaceMarineListItemComponent } from '../space-marine-list-item/space-marine-list-item.component';
 import { NgClass, NgForOf } from "@angular/common";
-import { spaceMarines } from '../data/mock-contents';
+import { SpaceMarineService } from '../services/space-marine.service';  // Import the service
 
 @Component({
   selector: 'app-space-marine-list',
@@ -11,9 +11,22 @@ import { spaceMarines } from '../data/mock-contents';
   styleUrls: ['./space-marine-list.component.css']
 })
 
-export class SpaceMarineListComponent {
+export class SpaceMarineListComponent implements OnInit {
 
-  // Reference to the imported array of Space Marines
-  spaceMarines = spaceMarines;
+  spaceMarines: any[] = [];  // Property to store Space Marines data
 
+  // Injecting the SpaceMarineService using dependency injection
+  constructor(private spaceMarineService: SpaceMarineService) {}
+
+  // OnInit lifecycle hook to fetch data from the service
+  ngOnInit(): void {
+    this.spaceMarineService.getSpaceMarines().subscribe({
+      next: (data: any[]) => {
+        this.spaceMarines = data;
+        console.log('Space Marines fetched:', this.spaceMarines);  // Logging the fetched data
+      },
+      error: (err) => console.error('Error fetching Space Marines', err),  // Logging error if any
+      complete: () => console.log('Space Marine data fetch complete')  // Logging when fetch is complete
+    });
+  }
 }
