@@ -1,14 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { SpaceMarineListComponent } from './space-marine-list/space-marine-list.component';
-import { SpaceMarineListItemComponent } from './space-marine-list-item/space-marine-list-item.component';
-import { JsonPipe, NgForOf, NgIf, NgOptimizedImage } from "@angular/common";
+import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 import { SpaceMarineService } from './services/space-marine.service';  // Import the service
+import { SpaceMarineListItemComponent } from './space-marine-list-item/space-marine-list-item.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, SpaceMarineListComponent, SpaceMarineListItemComponent, NgForOf, JsonPipe, NgOptimizedImage, NgIf],
+  imports: [RouterOutlet, SpaceMarineListItemComponent, RouterLink, RouterLinkActive],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
@@ -22,16 +20,27 @@ export class AppComponent implements OnInit {
   constructor(private spaceMarineService: SpaceMarineService) {}
 
   ngOnInit(): void {
-    const marineId = 2;  // ID of the marine you want to retrieve (e.g., Gabriel Angelos)
+    // Set a predefined featured marine (e.g., Marine with ID 2)
+    const predefinedMarineId = 2;
 
-    // Fetch the space marine by ID and assign it to the featuredMarine variable
-    this.spaceMarineService.getSpaceMarineById(marineId).subscribe({
+    // Fetch the predefined marine by ID and set it as the initial featured marine
+    this.spaceMarineService.getSpaceMarineById(predefinedMarineId).subscribe({
       next: (marine) => {
         this.featuredMarine = marine;
-        console.log('Featured Marine fetched by ID:', this.featuredMarine);
+        console.log('Predefined Featured Marine:', this.featuredMarine);
       },
-      error: (err) => console.error('Error fetching Space Marine by ID', err),
-      complete: () => console.log('Space Marine data fetch by ID complete')
+      error: (err) => console.error('Error fetching predefined Space Marine by ID', err),
+      complete: () => console.log('Predefined Marine fetch complete')
+    });
+
+    // Subscribe to the selectedMarine$ observable to update the featured marine dynamically
+    this.spaceMarineService.selectedMarine$.subscribe({
+      next: (marine) => {
+        if (marine) {
+          this.featuredMarine = marine;  // Update with newly selected marine
+          console.log('Featured Marine updated by selection:', this.featuredMarine);
+        }
+      }
     });
   }
 

@@ -1,4 +1,11 @@
 <div class="container">
+
+  <!-- Navigation Bar -->
+  <nav>
+    <a routerLink="/space-marines" routerLinkActive="active">Home</a> |
+    <a routerLink="/modify-list-item" routerLinkActive="active">Modify List Item</a>
+  </nav>
+
   <h2>Welcome to the Space Marine Database</h2>
 
   <!-- Display the single featured Space Marine at the top -->
@@ -6,7 +13,7 @@
     [spaceMarine]="featuredMarine"
     class="featured-marine">
   </app-space-marine-list-item>
-</div>
 
-<!-- Use the router outlet for routing components -->
-<router-outlet></router-outlet>
+  <!-- The list will now be displayed through routing -->
+  <router-outlet></router-outlet>
+</div>

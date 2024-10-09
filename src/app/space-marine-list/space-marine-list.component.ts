@@ -28,8 +28,8 @@ export class SpaceMarineListComponent implements OnInit {
     });
   }
 
-  // Method to emit the selected marine
+  // Method to select a marine and notify the service
   onSelectMarine(marine: any): void {
-    this.marineSelected.emit(marine);  // Emit the selected marine
+    this.spaceMarineService.selectMarine(marine);  // Set the selected marine in the service
   }
 }

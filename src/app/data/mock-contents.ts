@@ -5,7 +5,8 @@ export const spaceMarines = [
     rank: 'Chapter Master',
     yearBorn: '541',
     chapter: 'Ultramarines',
-    isFallen: false
+    isFallen: false,
+    imageUrl: 'assets/images/marneus_calgar.jpg'
   },
   {
     id: 2,
@@ -13,7 +14,8 @@ export const spaceMarines = [
     rank: 'Captain',
     yearBorn: '539',
     chapter: 'Blood Ravens',
-    isFallen: false
+    isFallen: false,
+    imageUrl: 'assets/images/gabriel_angelos.jpg'
   },
   {
     id: 3,
@@ -21,7 +23,8 @@ export const spaceMarines = [
     rank: 'Sergeant',
     yearBorn: '654',
     chapter: 'Salamanders',
-    isFallen: true
+    isFallen: true,
+    imageUrl: 'assets/images/discarius_hurn.jpg'
   },
   {
     id: 4,
@@ -29,7 +32,8 @@ export const spaceMarines = [
     rank: 'Captain',
     yearBorn: '540',
     chapter: 'Ultramarines',
-    isFallen: false
+    isFallen: false,
+    imageUrl: 'assets/images/cato_sicarius.jpg'
   },
   {
     id: 5,
@@ -37,6 +41,7 @@ export const spaceMarines = [
     rank: 'Supreme Grand Master',
     yearBorn: '541',
     chapter: 'Dark Angels',
-    isFallen: false
+    isFallen: false,
+    imageUrl: 'assets/images/azrael.jpg'
   }
 ];

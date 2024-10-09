@@ -1,1 +1,46 @@
+/* App Component CSS */
 
+/* Navigation Bar Styles */
+nav {
+  background-color: black; /* Matching the h2 background color */
+  padding: 15px;           /* Adding padding to the navigation bar */
+  border-radius: 12px;      /* Matching the existing rounded corner style */
+  margin-bottom: 20px;      /* Spacing between the navbar and content */
+}
+
+nav a {
+  color: white;             /* White text for contrast */
+  font-size: 1.2em;         /* Slightly larger font for better readability */
+  text-decoration: none;    /* Remove underline from links */
+  margin-right: 20px;       /* Spacing between links */
+  padding: 10px;            /* Adding padding around the links */
+  border-radius: 8px;       /* Adding rounded corners to the links */
+}
+
+nav a:hover {
+  background-color: #51241f; /* Hover effect with a dark red background */
+  color: white;              /* Keeping the text white */
+}
+
+nav a.active {
+  font-weight: bold;         /* Highlighting the active link */
+  background-color: aliceblue; /* Light background for active links */
+  color: black;              /* Black text for the active link */
+}
+
+/* Container */
+.container {
+  background-color: #f4f4f4; /* Light background for contrast with the rest of the app */
+  padding: 20px;             /* Adding padding inside the container */
+  border-radius: 15px;        /* Consistent with other components' rounded corners */
+  margin-bottom: 20px;        /* Space between content sections */
+}
+
+/* Featured Marine Styles */
+.featured-marine {
+  border: 2px solid black;    /* Black border to match the style of the list items */
+  padding: 15px;              /* Padding for better readability */
+  background-color: aliceblue;/* Light background to highlight the featured marine */
+  border-radius: 12px;        /* Rounded corners for consistency */
+  margin-bottom: 20px;        /* Space between the featured marine and the rest of the content */
+}

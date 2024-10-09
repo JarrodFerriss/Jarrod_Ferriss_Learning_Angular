@@ -1,0 +1,31 @@
+/* Styles for the 404 Page Not Found component */
+.page-not-found {
+  text-align: center;            /* Center the content */
+  padding: 50px;                 /* Add padding for spacing */
+  background-color: #f8d7da;     /* Light red background for error indication */
+  color: #721c24;                /* Dark red text color for error */
+  border-radius: 12px;           /* Rounded corners for consistency */
+  margin: 20px;                  /* Space around the page */
+}
+
+.page-not-found h2 {
+  font-size: 2.5em;              /* Larger font for the main message */
+}
+
+.page-not-found p {
+  font-size: 1.5em;              /* Slightly larger font for the paragraph */
+}
+
+.home-link {
+  display: inline-block;         /* Inline block to allow padding and hover effect */
+  padding: 10px 20px;            /* Padding around the link */
+  background-color: #51241f;     /* Matching the global background color */
+  color: white;                  /* White text */
+  text-decoration: none;         /* Remove underline */
+  border-radius: 8px;            /* Rounded corners */
+  margin-top: 20px;              /* Spacing above the link */
+}
+
+.home-link:hover {
+  background-color: #721c24;     /* Slightly darker red on hover */
+}

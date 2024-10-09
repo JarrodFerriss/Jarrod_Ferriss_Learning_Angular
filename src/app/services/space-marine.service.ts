@@ -1,11 +1,15 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';  // Importing Observable and of
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { spaceMarines } from '../data/mock-contents';  // Correct path to the spaceMarines data
 
 @Injectable({
   providedIn: 'root'
 })
 export class SpaceMarineService {
+
+  // BehaviorSubject to track the selected marine
+  private selectedMarineSubject = new BehaviorSubject<any>(null);
+  selectedMarine$ = this.selectedMarineSubject.asObservable();
 
   constructor() { }
 
@@ -18,6 +22,11 @@ export class SpaceMarineService {
   getSpaceMarineById(id: number): Observable<any | undefined> {
     const marine = spaceMarines.find(m => m.id === id);  // Finding the marine by id
     return of(marine);  // Returning the found marine as an Observable
+  }
+
+  // Method to set the selected marine
+  selectMarine(marine: any): void {
+    this.selectedMarineSubject.next(marine);  // Update the selected marine
   }
 
   // Create method: Accepts an IContent item, adds it to the array, and returns the updated array
