@@ -6,9 +6,7 @@
     [spaceMarine]="featuredMarine"
     class="featured-marine">
   </app-space-marine-list-item>
-
-  <!-- Display the list of Space Marines below -->
-  <app-space-marine-list (marineSelected)="updateFeaturedMarine($event)"></app-space-marine-list> <!-- Added event binding -->
 </div>
 
+<!-- Use the router outlet for routing components -->
 <router-outlet></router-outlet>
