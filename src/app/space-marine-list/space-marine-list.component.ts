@@ -32,4 +32,8 @@ export class SpaceMarineListComponent implements OnInit {
   onSelectMarine(marine: any): void {
     this.spaceMarineService.selectMarine(marine);  // Set the selected marine in the service
   }
+
+
 }
+
+
