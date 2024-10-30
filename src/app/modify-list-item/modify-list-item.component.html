@@ -19,10 +19,10 @@
     <label for="isFallen">Fallen:</label>
     <input id="isFallen" formControlName="isFallen" type="checkbox">
   </div>
-  <div>
-    <label for="imageUrl">Image URL:</label>
-    <input id="imageUrl" formControlName="imageUrl" type="text" placeholder="Enter image URL">
-  </div>
 
-  <button type="submit">Add / Update Marine</button>
+  <!-- Conditional button rendering based on whether the ID exists -->
+  <div class="button-group">
+    <button type="submit" *ngIf="marineForm.get('id')?.value">Update Marine</button>
+    <button type="submit" *ngIf="!marineForm.get('id')?.value">Add Marine</button>
+  </div>
 </form>
