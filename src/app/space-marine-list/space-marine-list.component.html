@@ -4,5 +4,11 @@
        [ngClass]="{'odd-item': i % 2 !== 0, 'even-item': i % 2 === 0}"
        (click)="onSelectMarine(spaceMarine)"> <!-- Click event -->
     <app-space-marine-list-item [spaceMarine]="spaceMarine"></app-space-marine-list-item>
+
+    <!-- Buttons for editing and deleting -->
+    <div class="actions">
+      <button (click)="onEditMarine(spaceMarine)">Edit</button>
+      <button (click)="onDeleteMarine(spaceMarine.id)">Delete</button>
+    </div>
   </div>
 </div>

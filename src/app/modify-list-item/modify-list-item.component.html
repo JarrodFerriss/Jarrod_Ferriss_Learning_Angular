@@ -1,1 +1,28 @@
-<p>modify-list-item works!</p>
+<form [formGroup]="marineForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="name">Name:</label>
+    <input id="name" formControlName="name" type="text" placeholder="Enter marine name">
+  </div>
+  <div>
+    <label for="rank">Rank:</label>
+    <input id="rank" formControlName="rank" type="text" placeholder="Enter marine rank">
+  </div>
+  <div>
+    <label for="yearBorn">Year Born:</label>
+    <input id="yearBorn" formControlName="yearBorn" type="number" placeholder="Enter year born">
+  </div>
+  <div>
+    <label for="chapter">Chapter:</label>
+    <input id="chapter" formControlName="chapter" type="text" placeholder="Enter chapter name">
+  </div>
+  <div>
+    <label for="isFallen">Fallen:</label>
+    <input id="isFallen" formControlName="isFallen" type="checkbox">
+  </div>
+  <div>
+    <label for="imageUrl">Image URL:</label>
+    <input id="imageUrl" formControlName="imageUrl" type="text" placeholder="Enter image URL">
+  </div>
+
+  <button type="submit">Add / Update Marine</button>
+</form>
