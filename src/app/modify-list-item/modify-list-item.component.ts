@@ -17,69 +17,78 @@ import {firstValueFrom} from 'rxjs';
   styleUrl: './modify-list-item.component.css'
 })
 export class ModifyListItemComponent implements OnInit {
-  // Define the marineForm property
   marineForm!: FormGroup;
+  errorMessage: string | null = null;
 
   constructor(
     private fb: FormBuilder,
-    private spaceMarineService: SpaceMarineService, // Inject the service
-    private router: Router // Inject Router if needed for navigation
+    private spaceMarineService: SpaceMarineService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
-    // Initialize the form with controls
     this.marineForm = this.fb.group({
-      id: [null],  // Optional field for updating an existing marine
+      id: [null],
       name: ['', Validators.required],
       rank: ['', Validators.required],
-      yearBorn: ['', [Validators.required, Validators.pattern(/^\d+$/)]], // Numeric validation
+      yearBorn: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
       chapter: ['', Validators.required],
       isFallen: [false]
     });
 
-    // Subscribe to selected marine changes to populate the form if editing
     this.spaceMarineService.selectedMarine$.subscribe((marine) => {
       if (marine) {
-        this.marineForm.patchValue(marine);  // Update form with selected marine details
+        this.marineForm.patchValue(marine);
       }
     });
   }
 
-  // Method to handle form submission
   async onSubmit(): Promise<void> {
     if (this.marineForm.valid) {
       const marineData = this.marineForm.value;
 
       if (marineData.id) {
-        // Update operation: Preserve the existing image URL if editing an existing marine
-        const existingMarine = await firstValueFrom(this.spaceMarineService.getSpaceMarineById(marineData.id));
-        if (existingMarine) {
-          marineData.imageUrl = existingMarine.imageUrl; // Retain the existing image URL
+        try {
+          const existingMarine = await firstValueFrom(this.spaceMarineService.getSpaceMarineById(marineData.id));
+          if (existingMarine) {
+            marineData.imageUrl = existingMarine.imageUrl;
+          }
+          this.spaceMarineService.updateSpaceMarine(marineData).subscribe({
+            next: () => {
+              this.resetForm();
+              this.router.navigate(['/space-marines']);
+              this.errorMessage = null;
+            },
+            error: (err) => {
+              console.error('Error updating marine:', err);
+              this.errorMessage = 'Failed to update Space Marine. Please try again.';
+            }
+          });
+        } catch (error) {
+          console.error('Error fetching marine for update:', error);
+          this.errorMessage = 'Failed to fetch marine data for update.';
         }
-
-        this.spaceMarineService.updateSpaceMarine(marineData).subscribe((updatedMarines) => {
-          console.log('Marine updated:', updatedMarines);
-          this.resetForm();  // Reset the form after submission
-          this.router.navigate(['/space-marines']);  // Redirect back to the list
-        });
       } else {
-        // Add operation - Generate a new ID for the new marine
         marineData.id = await this.generateNewId();
-        // Set default image URL for new space marines
         marineData.imageUrl = 'assets/images/space_marine.jpg';
 
-        this.spaceMarineService.addSpaceMarine(marineData).subscribe((updatedMarines) => {
-          console.log('Marine added:', updatedMarines);
-          this.resetForm();  // Reset the form after submission
-          this.router.navigate(['/space-marines']);  // Redirect back to the list
+        this.spaceMarineService.addSpaceMarine(marineData).subscribe({
+          next: () => {
+            this.resetForm();
+            this.router.navigate(['/space-marines']);
+            this.errorMessage = null;
+          },
+          error: (err) => {
+            console.error('Error adding marine:', err);
+            this.errorMessage = 'Failed to add Space Marine. Please try again.';
+          }
         });
       }
     } else {
-      console.error('Form is invalid');
+      this.errorMessage = 'Form is invalid. Please fill out all required fields.';
     }
   }
 
-  // Method to reset the form
   resetForm(): void {
     this.marineForm.reset({
       id: null,

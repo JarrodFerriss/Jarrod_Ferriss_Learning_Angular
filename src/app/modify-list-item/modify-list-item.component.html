@@ -1,4 +1,9 @@
 <form [formGroup]="marineForm" (ngSubmit)="onSubmit()">
+  <!-- Display error message if there's an error -->
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
   <div>
     <label for="name">Name:</label>
     <input id="name" formControlName="name" type="text" placeholder="Enter marine name">
@@ -20,7 +25,6 @@
     <input id="isFallen" formControlName="isFallen" type="checkbox">
   </div>
 
-  <!-- Conditional button rendering based on whether the ID exists -->
   <div class="button-group">
     <button type="submit" *ngIf="marineForm.get('id')?.value">Update Marine</button>
     <button type="submit" *ngIf="!marineForm.get('id')?.value">Add Marine</button>

@@ -1,11 +1,15 @@
 <div class="space-marine-list">
   <h2>Space Marine List</h2>
+
+  <!-- Display error message if there's an error -->
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
   <div *ngFor="let spaceMarine of spaceMarines; let i = index"
        [ngClass]="{'odd-item': i % 2 !== 0, 'even-item': i % 2 === 0}"
-       (click)="onSelectMarine(spaceMarine)"> <!-- Click event -->
+       (click)="onSelectMarine(spaceMarine)">
     <app-space-marine-list-item [spaceMarine]="spaceMarine"></app-space-marine-list-item>
-
-    <!-- Buttons for editing and deleting -->
     <div class="actions">
       <button (click)="onEditMarine(spaceMarine)">Edit</button>
       <button (click)="onDeleteMarine(spaceMarine.id)">Delete</button>

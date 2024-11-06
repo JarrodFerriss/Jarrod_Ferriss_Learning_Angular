@@ -1,56 +1,50 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, of } from 'rxjs';
-import { spaceMarines } from '../data/mock-contents';  // Correct path to the spaceMarines data
+import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SpaceMarineService {
+  private apiUrl = 'api/spaceMarines'; // URL to web API
 
   // BehaviorSubject to track the selected marine
   private selectedMarineSubject = new BehaviorSubject<any>(null);
   selectedMarine$ = this.selectedMarineSubject.asObservable();
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  // Method to return the spaceMarines array as an Observable
+  // Get all Space Marines
   getSpaceMarines(): Observable<any[]> {
-    return of(spaceMarines);  // Using the 'of' operator to return an Observable
+    return this.http.get<any[]>(this.apiUrl);
   }
 
-  // Read method: Accepts a number and returns the IContent item with the same id
+  // Get Space Marine by ID
   getSpaceMarineById(id: number): Observable<any | undefined> {
-    const marine = spaceMarines.find(m => m.id === id);  // Finding the marine by id
-    return of(marine);  // Returning the found marine as an Observable
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.get<any>(url);
   }
 
-  // Method to set the selected marine
+  // Select a Space Marine
   selectMarine(marine: any): void {
-    this.selectedMarineSubject.next(marine);  // Update the selected marine
+    this.selectedMarineSubject.next(marine);
   }
 
-  // Create method: Accepts an IContent item, adds it to the array, and returns the updated array
-  addSpaceMarine(newMarine: any): Observable<any[]> {
-    spaceMarines.push(newMarine);  // Adding the new marine to the array
-    return of(spaceMarines);  // Returning the updated array as an Observable
+  // Add a new Space Marine
+  addSpaceMarine(newMarine: any): Observable<any> {
+    return this.http.post<any>(this.apiUrl, newMarine);
   }
 
-  // Update method: Accepts an IContent item, updates the marine with the same id, and returns the updated array
-  updateSpaceMarine(updatedMarine: any): Observable<any[]> {
-    const index = spaceMarines.findIndex(m => m.id === updatedMarine.id);  // Finding the marine by id
-    if (index !== -1) {
-      spaceMarines[index] = updatedMarine;  // Updating the marine in the array
-    }
-    return of(spaceMarines);  // Returning the updated array as an Observable
+  // Update an existing Space Marine
+  updateSpaceMarine(updatedMarine: any): Observable<any> {
+    const url = `${this.apiUrl}/${updatedMarine.id}`;
+    return this.http.put<any>(url, updatedMarine);
   }
 
-  // Delete method: Accepts a number, removes the marine with the same id, and returns the removed item
-  deleteSpaceMarine(id: number): Observable<any | undefined> {
-    const index = spaceMarines.findIndex(m => m.id === id);  // Finding the marine by id
-    let removedMarine;
-    if (index !== -1) {
-      removedMarine = spaceMarines.splice(index, 1)[0];  // Removing the marine from the array
-    }
-    return of(removedMarine);  // Returning the removed marine as an Observable
+  // Delete a Space Marine by ID
+  deleteSpaceMarine(id: number): Observable<any> {
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.delete<any>(url);
   }
 }
