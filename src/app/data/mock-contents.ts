@@ -3,8 +3,9 @@ export const spaceMarines = [
     id: 1,
     name: 'Marneus Calgar',
     rank: 'Chapter Master',
-    yearBorn: '541',
+    yearBorn: '0516',
     chapter: 'Ultramarines',
+    equipmentBudget: 1569873561,
     isFallen: false,
     imageUrl: 'assets/images/marneus_calgar.jpg'
   },
@@ -12,8 +13,9 @@ export const spaceMarines = [
     id: 2,
     name: 'Gabriel Angelos',
     rank: 'Captain',
-    yearBorn: '539',
+    yearBorn: '0539',
     chapter: 'Blood Ravens',
+    equipmentBudget: 5693247852,
     isFallen: false,
     imageUrl: 'assets/images/gabriel_angelos.jpg'
   },
@@ -21,8 +23,9 @@ export const spaceMarines = [
     id: 3,
     name: 'Discarius Hurn',
     rank: 'Sergeant',
-    yearBorn: '654',
+    yearBorn: '0654',
     chapter: 'Salamanders',
+    equipmentBudget: 5632089645,
     isFallen: true,
     imageUrl: 'assets/images/discarius_hurn.jpg'
   },
@@ -30,8 +33,9 @@ export const spaceMarines = [
     id: 4,
     name: 'Cato Sicarius',
     rank: 'Captain',
-    yearBorn: '540',
+    yearBorn: '0540',
     chapter: 'Ultramarines',
+    equipmentBudget: 2896537821,
     isFallen: false,
     imageUrl: 'assets/images/cato_sicarius.jpg'
   },
@@ -39,8 +43,9 @@ export const spaceMarines = [
     id: 5,
     name: 'Azrael',
     rank: 'Supreme Grand Master',
-    yearBorn: '541',
+    yearBorn: '0541',
     chapter: 'Dark Angels',
+    equipmentBudget: 6925418965,
     isFallen: false,
     imageUrl: 'assets/images/azrael.jpg'
   }

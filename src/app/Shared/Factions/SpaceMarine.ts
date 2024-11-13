@@ -1,10 +1,11 @@
 // Creating the 'SpaceMarine' data type
 export interface SpaceMarine {
 
-  name: string, 
+  name: string,
   yearBorn: number,
   rank: string,
   chapter: string,
+  equipmentBudget?: number,
   isFallen?: boolean
 
 }

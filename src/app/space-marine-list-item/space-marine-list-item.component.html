@@ -4,9 +4,12 @@
   <!-- Display the image for each space marine -->
   <img [ngSrc]="spaceMarine.imageUrl" alt="{{ spaceMarine.name }}" height="300" width="300" loading="lazy">
 
-  <h3>{{ spaceMarine.name }} | {{ spaceMarine.rank }}</h3>
-  <p><strong>Born:</strong> {{ spaceMarine.yearBorn }} of the 41st Millennium.</p>
+  <h3>{{ spaceMarine.name | uppercase }} | {{ spaceMarine.rank | uppercase }}</h3>
+  <p><strong>Born:</strong> {{ spaceMarine.yearBorn | date: 'yyyy' }} of the 41st Millennium.</p>
   <p><strong>Chapter:</strong> {{ spaceMarine.chapter }}</p>
+  <p *ngIf="spaceMarine.equipmentBudget">
+    <strong>Equipment Budget:</strong> {{ spaceMarine.equipmentBudget | currency:'USD' }}
+  </p>
 
   <div *ngIf="spaceMarine.isFallen; else alive">
     <img ngSrc="assets/images/skull.jpg" alt="Skull and Crossbones" height="300" width="300">

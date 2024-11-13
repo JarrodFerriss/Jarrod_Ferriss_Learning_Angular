@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import {NgIf, NgOptimizedImage} from "@angular/common";
+import {CurrencyPipe, DatePipe, NgIf, NgOptimizedImage, UpperCasePipe} from "@angular/common";
 
 @Component({
   selector: 'app-space-marine-list-item',
@@ -7,7 +7,10 @@ import {NgIf, NgOptimizedImage} from "@angular/common";
   templateUrl: './space-marine-list-item.component.html',
   imports: [
     NgIf,
-    NgOptimizedImage
+    NgOptimizedImage,
+    UpperCasePipe,
+    DatePipe,
+    CurrencyPipe
   ],
   styleUrls: ['./space-marine-list-item.component.css']
 })
