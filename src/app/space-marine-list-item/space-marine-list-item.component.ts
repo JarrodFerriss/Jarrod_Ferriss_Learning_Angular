@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 import {CurrencyPipe, DatePipe, NgIf, NgOptimizedImage, UpperCasePipe} from "@angular/common";
+import {FullNameWithRankPipe} from "../customPipe/full-name-with-rank.pipe";
+import {CommonModule} from "@angular/common";
 
 @Component({
   selector: 'app-space-marine-list-item',
@@ -10,7 +12,8 @@ import {CurrencyPipe, DatePipe, NgIf, NgOptimizedImage, UpperCasePipe} from "@an
     NgOptimizedImage,
     UpperCasePipe,
     DatePipe,
-    CurrencyPipe
+    CurrencyPipe,
+    FullNameWithRankPipe
   ],
   styleUrls: ['./space-marine-list-item.component.css']
 })

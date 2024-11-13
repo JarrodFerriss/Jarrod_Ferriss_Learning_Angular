@@ -4,7 +4,7 @@
   <!-- Display the image for each space marine -->
   <img [ngSrc]="spaceMarine.imageUrl" alt="{{ spaceMarine.name }}" height="300" width="300" loading="lazy">
 
-  <h3>{{ spaceMarine.name | uppercase }} | {{ spaceMarine.rank | uppercase }}</h3>
+  <h3>{{ spaceMarine | fullNameWithRank | uppercase }}</h3>
   <p><strong>Born:</strong> {{ spaceMarine.yearBorn | date: 'yyyy' }} of the 41st Millennium.</p>
   <p><strong>Chapter:</strong> {{ spaceMarine.chapter }}</p>
   <p *ngIf="spaceMarine.equipmentBudget">

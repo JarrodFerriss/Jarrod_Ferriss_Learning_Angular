@@ -10,6 +10,7 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import { importProvidersFrom } from '@angular/core';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './app/services/in-memory-data.service';
+import { FullNameWithRankPipe } from "./app/customPipe/full-name-with-rank.pipe";
 
 // Define the routes
 const routes: Routes = [
@@ -25,6 +26,7 @@ bootstrapApplication(AppComponent, {
   providers: [
     provideHttpClient(withInterceptorsFromDi()), // Configures HTTP client with interceptors
     provideRouter(routes),
-    importProvidersFrom(HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 1000 })) // Simulate a server with a delay
+    importProvidersFrom(HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 1000 })), // Simulate a server with a delay
+    FullNameWithRankPipe
   ]
 }).catch((err) => console.error(err));

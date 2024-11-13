@@ -1,4 +1,6 @@
-export const spaceMarines = [
+import { SpaceMarineModel } from "../../models/space-marine.model";
+
+export const spaceMarines:SpaceMarineModel[] = [
   {
     id: 1,
     name: 'Marneus Calgar',
