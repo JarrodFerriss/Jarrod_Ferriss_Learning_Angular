@@ -25,7 +25,7 @@ describe('SpaceMarineService', () => {
     const newMarine = { id: 6, name: 'New Marine', rank: 'Lieutenant', yearBorn: '600', chapter: 'Ultramarines', isFallen: false };
     service.addSpaceMarine(newMarine).subscribe((updatedMarines) => {
       expect(updatedMarines.length).toBe(spaceMarines.length);  // Check if marine was added
-      expect(updatedMarines.find(m => m.id === newMarine.id)).toEqual(newMarine);  // Check if the new marine exists
+      expect(updatedMarines.find((m: { id: number; }) => m.id === newMarine.id)).toEqual(newMarine);  // Check if the new marine exists
       done();
     });
   });
@@ -33,7 +33,7 @@ describe('SpaceMarineService', () => {
   it('should update an existing space marine', (done: DoneFn) => {
     const updatedMarine = { id: 2, name: 'Gabriel Angelos', rank: 'Chapter Master', yearBorn: '539', chapter: 'Blood Ravens', isFallen: false };
     service.updateSpaceMarine(updatedMarine).subscribe((updatedMarines) => {
-      const marine = updatedMarines.find(m => m.id === updatedMarine.id);
+      const marine = updatedMarines.find((m: { id: number; }) => m.id === updatedMarine.id);
       expect(marine?.rank).toBe('Chapter Master');  // Check if the marine's rank was updated
       done();
     });
