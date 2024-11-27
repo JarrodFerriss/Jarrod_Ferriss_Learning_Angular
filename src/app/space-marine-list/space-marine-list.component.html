@@ -8,6 +8,7 @@
 
   <div *ngFor="let spaceMarine of spaceMarines; let i = index"
        [ngClass]="{'odd-item': i % 2 !== 0, 'even-item': i % 2 === 0}"
+       [appHoverHighlight]="'lightyellow'"
        (click)="onSelectMarine(spaceMarine)">
     <app-space-marine-list-item [spaceMarine]="spaceMarine"></app-space-marine-list-item>
     <div class="actions">

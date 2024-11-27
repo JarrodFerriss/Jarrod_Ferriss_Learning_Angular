@@ -3,6 +3,7 @@ import { SpaceMarineService } from '../services/space-marine.service';
 import { Router } from '@angular/router';
 import {NgClass, NgForOf, NgIf} from "@angular/common";
 import {SpaceMarineListItemComponent} from "../space-marine-list-item/space-marine-list-item.component";
+import {HoverHighlightDirective} from "../Directives/hover-highlight.directive";
 
 @Component({
   selector: 'app-space-marine-list',
@@ -11,7 +12,8 @@ import {SpaceMarineListItemComponent} from "../space-marine-list-item/space-mari
     NgForOf,
     NgClass,
     SpaceMarineListItemComponent,
-    NgIf
+    NgIf,
+    HoverHighlightDirective
   ],
   templateUrl: './space-marine-list.component.html',
   styleUrls: ['./space-marine-list.component.css']
