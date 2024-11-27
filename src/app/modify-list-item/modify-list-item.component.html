@@ -6,23 +6,23 @@
 
   <div>
     <label for="name">Name:</label>
-    <input id="name" formControlName="name" type="text" placeholder="Enter marine name">
+    <input id="name" formControlName="name" type="text" [appHighlightOnFocus]="'lightblue'" placeholder="Enter marine name">
   </div>
   <div>
     <label for="rank">Rank:</label>
-    <input id="rank" formControlName="rank" type="text" placeholder="Enter marine rank">
+    <input id="rank" formControlName="rank" type="text" [appHighlightOnFocus]="'lightblue'" placeholder="Enter marine rank">
   </div>
   <div>
     <label for="yearBorn">Year Born:</label>
-    <input id="yearBorn" formControlName="yearBorn" type="number" placeholder="Enter year born">
+    <input id="yearBorn" formControlName="yearBorn" type="number" [appHighlightOnFocus]="'lightblue'" placeholder="Enter year born">
   </div>
   <div>
     <label for="chapter">Chapter:</label>
-    <input id="chapter" formControlName="chapter" type="text" placeholder="Enter chapter name">
+    <input id="chapter" formControlName="chapter" type="text" [appHighlightOnFocus]="'lightblue'" placeholder="Enter chapter name">
   </div>
   <div>
     <label for="isFallen">Fallen:</label>
-    <input id="isFallen" formControlName="isFallen" type="checkbox">
+    <input id="isFallen" formControlName="isFallen" type="checkbox" [appHighlightOnFocus]="'lightblue'">
   </div>
 
   <div class="button-group">

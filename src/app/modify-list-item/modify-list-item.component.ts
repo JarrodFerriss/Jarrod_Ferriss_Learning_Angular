@@ -5,13 +5,15 @@ import {Router} from '@angular/router'; // Import Router if needed for navigatio
 import {map} from 'rxjs/operators';
 import {NgIf} from "@angular/common";
 import {firstValueFrom} from 'rxjs';
+import {HighlightOnFocusDirective} from "../Directives/highlight-on-focus.directive";
 
 @Component({
   selector: 'app-modify-list-item',
   standalone: true,
   imports: [
     ReactiveFormsModule,
-    NgIf
+    NgIf,
+    HighlightOnFocusDirective
   ],
   templateUrl: './modify-list-item.component.html',
   styleUrl: './modify-list-item.component.css'
